@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id "me.videogame.recaf" version "1.3"
+}
+
+group 'dev.sl33py'
+version '1.0.0'
+
+recaf {
+    mainClass = "dev.sl33py.hidetrycatches.HideTryCatchesPlugin"
+    recafVersion = "2.21.11"
+}
+
+/**
+ * About shading
+ *
+ * If you're using shadowJar or anything
+ * that shadows all dependencies with the "implementation" configuration.
+ * You may need to change it around.
+ *
+ * Here is an example with shadow
+ *
+ * shadowJar {
+ *     configurations = [project.configurations.shadow]
+ * }
+ *
+ * and then when you want to shade a dependency use
+ *
+ * shadow "com.example:dependency:version"
+ * instead of implementation "com.example:dependency:version".
+ *
+ * Why?
+ * Basically, we don't want to shade Recaf but we want it to be
+ * present at compile time & runtime WHEN developing the plugin
+ */

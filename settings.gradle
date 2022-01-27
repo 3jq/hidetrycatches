@@ -1,0 +1,16 @@
+pluginManagement {
+    repositories {
+        maven { url "https://jitpack.io/" }
+        gradlePluginPortal()
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if (requested.id.id.equals("me.videogame.recaf")) {
+                useModule("com.github.videogame-player:recaf-development:${requested.version}")
+            }
+        }
+    }
+}
+
+rootProject.name = 'hidetrycatches'
+
