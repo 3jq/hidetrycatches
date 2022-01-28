@@ -32,10 +32,10 @@ public class HideTryCatchesPlugin implements WorkspacePlugin, StartupPlugin{
 
             classNode.methods.forEach(m -> m.tryCatchBlocks.clear());
 
-            ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_FRAMES);
+            ClassWriter classWriter = new ClassWriter(0);
             classNode.accept(classWriter);
 
-            workspace.getPrimary().getClasses().replace(entry.getKey(), classWriter.toByteArray());
+            entry.setValue(classWriter.toByteArray());
         }
     }
 
@@ -44,7 +44,7 @@ public class HideTryCatchesPlugin implements WorkspacePlugin, StartupPlugin{
     }
 
     @Override public String getVersion() {
-        return "1.0";
+        return "1.0.1";
     }
 
     @Override public String getDescription() {
